@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Proyecto</h3>
+    <h4>Matriz en espiral</h4>
+    <script>
+        //Rellenando matriz con un prompt
+        //var matriz = []
+       
+       var n = Number(prompt("Ingresa el tamaño de la matriz"))
+        var inicio =0;
+        var limite= (n-1);
+        var i=1;
+
+if (!isNaN(n)) {
+  //console.log('Es un número');
+
+  var matrizz = new Array(n);
+
+for(x=0; x<n; x++){
+    matrizz[x]=new Array(n);
+
+}
+
+for(x=0;x<n;x++){
+    for(y=0;y<n;y++){
+        matrizz[x][y]=0;
+    }
+}
+
+while(i <= (Math.pow(n,2))){
+    for(x=inicio; x<=limite;x++){
+        matrizz[inicio][x]=i;
+        i++;
+    }
+
+    for(x=inicio+1;x<=limite;x++){
+        matrizz[x][limite]=i;
+        i++;
+    }
+
+    for(x=limite-1; x>=inicio; x--){
+        matrizz[limite][x]=i;
+        i++;
+    }
+
+    for(x=limite-1; x>=inicio+1; x--){
+        matrizz[x][inicio]=i;
+        i++;
+    }
+    inicio=inicio+1;
+    limite = limite -1;
+}
+
+document.write("<table border=1 px>");
+    for( x=0;x<n;x++){
+        document.write("<tr>");
+            for(y=0;y<n;y++){
+                document.write("<td aling='center'>"+ matrizz[x][y]+"</td>");
+            }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+
+}else{
+    window.alert("Recargar e ingresar un numero");
+}
+ 
+       
+
+
+        
+
+    </script>
+</body>
+</html>
